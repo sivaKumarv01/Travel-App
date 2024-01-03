@@ -1,0 +1,21 @@
+<table>
+  <thead>
+      <tr>
+          <th>Employee ID</th>
+          <th>Full Name</th>
+          <th>Designation</th>
+          <th>Location</th>
+          <th *ngIf="salary">Salary</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let detail of EmployeeDetails">
+          <td>{{detail.empid}}</td>
+          <td>{{detail.fullName}}</td>
+          <td>{{detail.designation}}</td>
+          <td>{{detail.location}}</td>
+          <td *ngIf="salary">{{detail.salary}}</td>
+      </tr>
+      <button (click)="salaryFunction()">{{ salary ? 'Hide Salary' : 'Show Salary' }}</button>
+  </tbody>
+</table>

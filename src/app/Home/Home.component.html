@@ -2,24 +2,132 @@
 
 <div class="leftbox">
   <nav>
-    <a routerLink="">Bus Booking</a>
-    <a routerLink="">car Booking</a>
-    <a routerLink="">hotel Booking</a>
-    <a routerLink="">flight Booking</a>
+    <a (click)="bookBus()">BUS BOOKING</a>
+    <a (click)="bookCar()">CAR BOOKING</a>
+    <a (click)="bookHotel()">HOTEL BOOKING</a>
+    <a (click)="bookFlight()">FLIGHT BOOKING</a>
   </nav>
 </div>
+<div class="centerbox">
+  <div  clas="hotelbooking" *ngIf="Hotel">
+    <form >
+      <label >Room Type:</label>
+        <select name="roomType" [(ngModel)]="hotel.roomType" (ngModelChange)="hoteltotalPriceCalculate()"  required>
+          <option value="" disabled selected>Select the Room's Type</option>
+          <option value="standard">Standard Room</option>
+          <option value="deluxe">Deluxe Room</option>
+          <option value="suite">Suite</option>
+        </select>
+
+        <label >Number of Rooms:</label>
+        <input type="number" name="numberOfRooms" [(ngModel)]="hotel.numberofRoom" (ngModelChange)="hoteltotalPriceCalculate()" required max="100">
+
+        <label>Number of Adults:</label>
+        <input type="number" name="numberOfadults" [(ngModel)]="hotel.numberOfAdults" required max="100">
+
+        <label >Number of Children:</label>
+        <input type="number" name="numberOfChildren" [(ngModel)]="hotel.numberOfChildren" required max="100" >
+
+        <label >Restaurant Facilities:</label>
+        <select  name="restaurantFacilities" [(ngModel)]="hotel.restaurantFacilities" required >
+          <option value="" disabled selected >Do you want Restaurant Facilities</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+
+      <pre>Total Price:<b>{{hotel.totalprice}}</b></pre>
+      <button type="submit" (click)="hotelBooking()">Book</button>
+    </form>
+
+  </div>
+  <div class="flightreservation" *ngIf="Flight">
+    <form>
+        <label>Flight Type:</label>
+        <select name="flightType" [(ngModel)]="flight.flightType"  (ngModelChange)="flighttotalPriceCalculate()"  required>
+            <option value="" disabled selected>Select the Flight's Type</option>
+            <option value="economy">Economy Class</option>
+            <option value="business">Business Class</option>
+            <option value="firstClass">First Class</option>
+        </select>
+
+        <label>Number of Tickets:</label>
+        <input type="number" name="numberOfTickets" [(ngModel)]="flight.numberOfTickets" (ngModelChange)="flighttotalPriceCalculate()" required max="100">
+
+        <label>Departure City:</label>
+        <input type="text" name="departureCity" [(ngModel)]="flight.departureCity" required>
+
+        <label>Destination City:</label>
+        <input type="text" name="destinationCity" [(ngModel)]="flight.destinationCity" required>
+
+        <label>Departure Date:</label>
+        <input type="date" name="departureDate" [(ngModel)]="flight.departureDate" required>
+
+        <pre>Total Price:<b>{{flight.totalPrice}}</b></pre>
+        <button type="submit" (click)="flightBooking()">Book</button>
+    </form>
+</div>
+
+<div class="carbooking" *ngIf="Car">
+  <form>
+      <label>Car Type:</label>
+      <select name="carType" [(ngModel)]="car.carType" (ngModelChange)="cartotalPriceCalculate()" required>
+          <option value="" disabled selected>Select the Car's Type</option>
+          <option value="sedan">Sedan</option>
+          <option value="suv">SUV</option>
+          <option value="hatchback">Hatchback</option>
+      </select>
+
+      <label>Number of Cars:</label>
+      <input type="number" name="numberOfCars" [(ngModel)]="car.numberofCar" (ngModelChange)="cartotalPriceCalculate()" required max="100">
+
+
+      <label>Insurance:</label>
+      <select name="insurance" [(ngModel)]="car.insurance" required>
+          <option value="" disabled selected>Do you want Insurance</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+      </select>
+
+      <pre>Total Price:<b>{{car.totalprice}}</b></pre>
+      <button type="submit" (click)="carBooking()">Book</button>
+  </form>
+</div>
+<div class="busbooking" *ngIf="Bus">
+  <form>
+      <label>Bus Type:</label>
+      <select name="busType" [(ngModel)]="bus.bustype" required>
+          <option value="" disabled selected>Select the Bus Type</option>
+          <option value="standard">Standard Bus</option>
+          <option value="deluxe">Deluxe Bus</option>
+          <option value="sleeper">Sleeper Bus</option>
+      </select>
+
+      <label>Number of Seats:</label>
+      <input type="number" name="numberOfSeats" [(ngModel)]="bus.numberOfSeats" (ngModelChange)="bustotalPriceCalculate" required max="100">
+
+      <label>Departure City:</label>
+      <input type="text" name="departureCity" [(ngModel)]="bus.departureCity" required>
+
+      <label>Destination City:</label>
+      <input type="text" name="destinationCity" [(ngModel)]="bus.destinationCity" required>
+
+      <label>Departure Date:</label>
+      <input type="date" name="departureDate" [(ngModel)]="bus.departureDate" required>
+      <pre>Total Price:<b>{{bus.totalprice}}</b></pre>
+      <button type="submit" (click)="busBooking()">Book</button>
+  </form>
+</div>
+
+</div>
 <div class="rightbox">
- <div class="txt">
-  <h3>Where</h3>
-  <p>dsfdfadsjfsdfhdjfsdjfsdf</p>
- </div>
- <div class="txt">
-  <h3>When</h3>
-  <p>dsfdfadsjfsdfhdjfsdjfsdf</p>
- </div>
- <div class="txt">
-  <h3>Transport</h3>
-  <p>dsfdfadsjfsdfhdjfsdjfsdf</p>
- </div>
+
+  <h2>Where?</h2>
+  <p>you can reach us for any location</p>
+
+  <h2>When?</h2>
+  <p>you can reach us for plan your trip</p>
+
+  <h2>Transport?</h2>
+  <p>you can reach us for BUS,FLIGHT And CAR over country</p>
 </div>
 </div>

@@ -8,13 +8,15 @@ import { HomeComponent } from './Home/Home.component';
 import { FooterComponent } from './Footer/Footer.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { EmployeeDetailsComponent } from './EmployeeDetails/EmployeeDetails.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       HeaderComponent,
       HomeComponent,
-      FooterComponent
+      FooterComponent,
+      EmployeeDetailsComponent
    ],
   imports: [
     BrowserModule,
